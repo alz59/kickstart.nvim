@@ -25,44 +25,35 @@ require('lazy').setup({
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
 
-  -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
+  -- The following two comments only work if you have downloaded the kickstart.plugins repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
   -- place them in the correct locations.
 
-  -- NOTE: Next step on your Neovim journey: Add/Configure additional plugins for Kickstart
-  --
-  --  Here are some example plugins that I've included in the Kickstart repository.
-  --  Uncomment any of the lines below to enable them (you will need to restart nvim).
-  --
-  -- require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.indent_line',
-  -- require 'kickstart.plugins.lint',
-  -- require 'kickstart.plugins.autopairs',
-  -- require 'kickstart.plugins.neo-tree',
-  --
-  -- modular approach: using `require 'path/name'` will
-  -- include a plugin definition from file lua/path/name.lua
+  -- NOTE: All plugins in folder: ~/.config/nvim/lua/kickstart.plugins will be loaded automatically.
+  --import = 'kickstart.plugins',
 
-  -- To sort select in Visual mode, then :!sort
-  require 'kickstart.plugins.cmp',
-  require 'kickstart.plugins.conform',
-  require 'kickstart.plugins.gitsigns',
-  --require 'kickstart.plugins.lazygit',
-  require 'kickstart.plugins.lspconfig',
-  require 'kickstart.plugins.mini',
-  require 'kickstart.plugins.neo-tree',
-  require 'kickstart.plugins.nightfox',
-  require 'kickstart.plugins.telescope',
-  require 'kickstart.plugins.todo-comments',
-  require 'kickstart.plugins.treesitter',
-  require 'kickstart.plugins.which-key',
-
-  -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
-  --    This is the easiest way to modularize your config.
-  --
-  --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
+  -- NOTE: All plugins in folder: ~/.config/nvim/lua/custom/ need to be required.
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
-  -- { import = 'custom.plugins' },
+  -- require "custom.plugins.barber",
+  -- require 'custom.plugins.lazygit',
+  -- require "custom.plugins.lualine",
+  { import = 'kickstart.plugins' },
+  -- require 'kickstart.plugins.autopairs',
+  -- require 'kickstart.plugins.cmp',
+  -- require 'kickstart.plugins.comment',
+  -- require 'kickstart.plugins.conform',
+  -- require 'kickstart.plugins.debug',
+  -- require 'kickstart.plugins.gitsigns',
+  -- require 'kickstart.plugins.indent-blankline',
+  -- require 'kickstart.plugins.lint',
+  -- require 'kickstart.plugins.lspconfig',
+  -- require 'kickstart.plugins.mini',
+  -- require 'kickstart.plugins.neo-tree',
+  -- require 'kickstart.plugins.nightfox',
+  -- require 'kickstart.plugins.telescope',
+  -- require 'kickstart.plugins.todo-comments',
+  -- require 'kickstart.plugins.treesitter',
+  -- require 'kickstart.plugins.which-key',
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the

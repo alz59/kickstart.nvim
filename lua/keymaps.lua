@@ -1,23 +1,36 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
+--
+--
+-- vim.keymap.set({mode}, {lhs}, {rhs}, {opts})
+-- {mode}: mode where the keybinding should execute. It can be a list of modes. We need to specify the mode's short name. Here are some of the most common.
+-- n: Normal mode.
+-- i: Insert mode.
+-- x: Visual mode.
+-- s: Selection mode.
+-- v: Visual + Selection.
+-- t: Terminal mode.
+-- o: Operator-pending.
+-- '': Yes, an empty string. Is the equivalent of n + v + o.
+-- {lhs}: is the key we want to bind.
+--
+-- {rhs} is the action we want to execute. It can be a string with a command or an expression. You can also provide a lua function.
+-- {opts} this must be a lua table. If you don't know what is a "lua table" just think is a way of storing several values in one place. Anyway, it can have these properties.
+--
+-- desc: A string that describes what the keybinding does. You can write anything you want.
+--
+-- remap: A boolean that determines if our keybinding can be recursive. The default value is false. Recursive keybindings can cause some conflicts if used incorrectly. Don't enable it unless you know what you're doing.
+-- buffer: It can be a boolean or a number. If we assign the boolean true it means the keybinding will only be effective in the current file. If we assign a number, it needs to be the "id" of an open buffer.
+-- silent: A boolean. Determines whether or not the keybindings can show a message. The default value is false.
+-- expr: A boolean. If enabled it gives the chance to use vimscript or lua to calculate the value of {rhs}. The default value is false.
 
--- Set highlight on search, but clear on pressing <Esc> in normal mode
-vim.opt.hlsearch = true
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-
--- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
-
--- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
--- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
 --
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+
+vim.keymap.set('i', 'jj', '<esc>')
 
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')

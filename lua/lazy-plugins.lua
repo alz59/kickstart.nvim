@@ -25,6 +25,7 @@ require('lazy').setup({
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
 
+  { 'akinsho/toggleterm.nvim', version = '*', config = true },
   -- The following two comments only work if you have downloaded the kickstart.plugins repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
   -- place them in the correct locations.
@@ -36,7 +37,10 @@ require('lazy').setup({
   --    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
   -- require "custom.plugins.barber",
   -- require 'custom.plugins.lazygit',
-  -- require "custom.plugins.lualine",
+  --  require 'lua.custom.plugins.nvim-dap-python',
+  require 'custom.plugins.listchars',
+  require 'custom.plugins.lualine',
+  require 'custom.plugins.bufferline',
   { import = 'kickstart.plugins' },
   -- require 'kickstart.plugins.autopairs',
   -- require 'kickstart.plugins.cmp',

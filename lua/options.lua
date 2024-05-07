@@ -26,6 +26,9 @@ vim.opt.breakindent = true
 -- Save undo history
 vim.opt.undofile = true
 
+-- use the directory of undotree plugin for managing the history
+vim.opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
+
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
@@ -48,7 +51,7 @@ vim.opt.splitbelow = true
 --  See `:help 'list'`
 --  and `:help 'listchars'`
 vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+-- vim.opt.listchars = { tab = '» ', trail = '○', space = '·', nbsp = '␣', eol = '↲', extends = '>', precedes = '<' }
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
@@ -57,4 +60,19 @@ vim.opt.inccommand = 'split'
 vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 8
+vim.opt.sidescrolloff = 8
+vim.opt.showtabline = 2
+-- display 2 spaces for tab character
+vim.opt.tabstop = 2
+-- insert spaces when tab character in insert mode
+vim.opt.expandtab = false
+vim.opt.shiftwidth = 2
+--- ¶ ● · • ← ↑ → ↓ ↔ ↕ ⏎ 
+-- vim.opt.listchars=tab:▸\ ,eol:↲,trail:·
+-- vim.opt.listchars=eol:$,tab:\gcc
+
+-- vim.opt.listchars = { space = '.', tab = '> ', eol = '$' }
+-- hi CursorLine gui=underline cterm=underline
+-- vim.cmd ':hi CursorLine gui=underline cterm=underline'
+vim.api.nvim_set_hl(0, 'CursorLine', { underline = true })

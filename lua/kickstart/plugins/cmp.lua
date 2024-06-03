@@ -33,14 +33,19 @@ return {
       --  nvim-cmp does not ship with all sources by default. They are split
       --  into multiple repos for maintenance purposes.
       'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-nvim-lua',
       'hrsh7th/cmp-path',
+      'hrsh7th/cmp-buffer',
+      'onsails/lspkind.nvim',
+      'honza/vim-snippets',
     },
-
     config = function()
       -- See `:help cmp`
       local cmp = require 'cmp'
       local luasnip = require 'luasnip'
       luasnip.config.setup {}
+      local lspkind = require 'lspkind'
+      lspkind.init()
 
       cmp.setup {
         snippet = {
@@ -106,8 +111,26 @@ return {
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
+          { name = 'vim-snippets' },
+          { name = 'buffer' },
+        },
+        formatting = {
+          format = lspkind.cmp_format {
+            with_text = true,
+            menu = {
+              buffer = '[Bufffer]',
+              nvim_lsp = '[LSP]',
+              path = '[Path]',
+              luasnip = '[Snippet]',
+            },
+          },
+        },
+        experimental = {
+          native_menu = false,
+          ghost_text = true,
         },
       }
     end,
   },
 }
+-- vim: ts=2 sts=2 sw=2 et

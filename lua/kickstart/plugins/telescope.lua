@@ -101,9 +101,6 @@ return {
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })
-
-      vim.keymap.set('n', '<leader>bz', '<cmd>:tab split<CR>', { desc = 'Zoom buffer' })
-      vim.keymap.set('n', '<leader>bu', '<cmd>:tabc<CR>', { desc = 'un Zoom buffer' })
     end,
   },
 }

@@ -22,6 +22,8 @@ return {
           {
             'rafamadriz/friendly-snippets',
             config = function()
+              -- TODO: remove paths below?
+              require('luasnip.loaders.from_vscode').lazy_load { paths = '~/.config/nvim/snippets/' }
             end,
           },
         },
@@ -39,6 +41,7 @@ return {
       'honza/vim-snippets',
     },
     config = function()
+      require 'snippets.MySnippets'
       -- See `:help cmp`
       local cmp = require 'cmp'
       local luasnip = require 'luasnip'
